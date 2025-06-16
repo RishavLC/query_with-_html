@@ -27,6 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <!-- Query Submission Form -->
+<a href="home.php">Home</a>
+
 <h2>Submit a Query</h2>
 <p>Welcome, <?= $_SESSION['name'] ?> | <a href="logout.php">Logout</a></p>
 <form method="post">

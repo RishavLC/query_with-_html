@@ -27,6 +27,7 @@ $result = $stmt->get_result();
     </style>
 </head>
 <body>
+<a href="home.php">Home</a>
 
 <h2>My Submitted Queries</h2>
 <table>

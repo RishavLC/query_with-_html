@@ -2,13 +2,14 @@
 include "config.php";
 session_start();
 
-if ($_SESSION['role'] !== 'admin') {
+if ($_SESSION['role'] !== 'admin' && $_SESSION['role'] !== 'superadmin') {
     die("Access denied.");
 }
 
 $id = $_GET['id'];
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $id = $_POST['id'];
     $name = $_POST['name'];
     $email = $_POST['email'];
     $role = $_POST['role'];
@@ -32,12 +33,14 @@ $user = $conn->query("SELECT * FROM users WHERE id=$id")->fetch_assoc();
 
 <h2>Edit User</h2>
 <form method="post">
+    <input type="hidden" name="id" value="<?= $user['id'] ?>">
     Name: <input type="text" name="name" value="<?= $user['name'] ?>" required><br><br>
     Email: <input type="email" name="email" value="<?= $user['email'] ?>" required><br><br>
     Role:
     <select name="role">
         <option value="user" <?= $user['role'] == 'user' ? 'selected' : '' ?>>User</option>
         <option value="admin" <?= $user['role'] == 'admin' ? 'selected' : '' ?>>Admin</option>
+        <option value="superadmin" <?= $user['role'] == 'superadmin' ? 'selected' : '' ?>>Superadmin</option>
     </select><br><br>
     <button type="submit">Update</button>
 </form>

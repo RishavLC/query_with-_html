@@ -7,6 +7,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
 
 include "config.php";
 ?>
+<a href="home.php">Home</a>
 
 <h2>Admin Dashboard</h2>
 

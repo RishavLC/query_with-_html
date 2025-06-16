@@ -18,7 +18,7 @@ if ($_SESSION['role'] !== 'admin') {
 $sql = "SELECT q.*, u.name FROM queries q JOIN users u ON q.user_id = u.id ORDER BY q.created_at DESC";
 $result = $conn->query($sql);
 ?>
-
+<a href="home.php">Home</a>
 <h2>Admin Panel</h2>
 <table border="1" cellpadding="5">
     <tr>
